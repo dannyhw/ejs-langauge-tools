@@ -66,6 +66,19 @@
     "json": {
       "patterns": [
         {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.json",
+          "patterns": [
+            {
+              "include": "#ejs-in-string"
+            },
+            {
+              "include": "source.json#stringcontent"
+            }
+          ]
+        },
+        {
           "begin": "{",
           "beginCaptures": {
             "0": { "name": "punctuation.definition.dictionary.begin.json" }
@@ -91,6 +104,56 @@
         },
         {
           "include": "source.json"
+        }
+      ]
+    },
+    "ejs-in-string": {
+      "patterns": [
+        {
+          "begin": "<%#",
+          "end": "%>",
+          "name": "comment.block.ejs",
+          "contentName": "comment.block.content.ejs"
+        },
+        {
+          "begin": "<%(?=[=\\-])",
+          "end": "%>",
+          "name": "meta.embedded.line.ejs",
+          "beginCaptures": {
+            "0": { "name": "keyword.control.ejs" }
+          },
+          "endCaptures": {
+            "0": { "name": "keyword.control.ejs" }
+          },
+          "patterns": [
+            {
+              "match": "[=\\-]",
+              "name": "keyword.control.ejs"
+            },
+            {
+              "include": "source.js"
+            }
+          ]
+        },
+        {
+          "begin": "<%",
+          "end": "%>",
+          "name": "meta.embedded.block.ejs",
+          "beginCaptures": {
+            "0": { "name": "keyword.control.ejs" }
+          },
+          "endCaptures": {
+            "0": { "name": "keyword.control.ejs" }
+          },
+          "patterns": [
+            {
+              "match": "\\b(if|else|for|while|do|switch|case|break|continue|return)\\b",
+              "name": "keyword.control.flow.js"
+            },
+            {
+              "include": "source.js"
+            }
+          ]
         }
       ]
     }
