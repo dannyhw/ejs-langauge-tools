@@ -47,6 +47,16 @@
           "JSON-EJS"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "css-ejs",
+        "extensions": [
+          ".css.ejs"
+        ],
+        "aliases": [
+          "CSS-EJS"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
@@ -75,6 +85,14 @@
         }
       },
       {
+        "language": "css-ejs",
+        "scopeName": "source.css.ejs",
+        "path": "./syntaxes/css-ejs-injection.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.ejs.tag": "javascript"
+        }
+      },
+      {
         "scopeName": "source.tsx",
         "injectTo": [
           "source.tsx.ejs"
@@ -90,6 +108,12 @@
         "scopeName": "source.json",
         "injectTo": [
           "source.json.ejs"
+        ]
+      },
+      {
+        "scopeName": "source.css",
+        "injectTo": [
+          "source.css.ejs"
         ]
       }
     ]
