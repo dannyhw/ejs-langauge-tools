@@ -1,6 +1,6 @@
 {
-  "name": "ejs-language-support",
-  "displayName": "EJS Language Support",
+  "name": "ejs-extended-language-support",
+  "displayName": "EJS Extended Language Support",
   "version": "1.0.0",
   "description": "Language support for EJS with TypeScript, TSX, JSON, and CSS",
   "icon": "images/icon.png",
