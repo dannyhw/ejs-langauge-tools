@@ -1,0 +1,65 @@
+{
+  "scopeName": "source.js.ejs",
+  "patterns": [
+    {
+      "begin": "<%#",
+      "end": "%>",
+      "name": "comment.block.ejs",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.comment.begin.ejs" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.comment.end.ejs" }
+      },
+      "patterns": [
+        {
+          "match": ".*?(?=%>)",
+          "name": "comment.block.content.ejs"
+        }
+      ]
+    },
+    {
+      "begin": "<%(?=[=\\-])",
+      "end": "%>",
+      "name": "meta.embedded.line.ejs",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "endCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "patterns": [
+        {
+          "match": "[=\\-]",
+          "name": "keyword.control.ejs"
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    {
+      "begin": "<%",
+      "end": "%>",
+      "name": "meta.embedded.block.ejs",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "endCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "patterns": [
+        {
+          "match": "\\b(if|else|for|while|do|switch|case|break|continue|return)\\b",
+          "name": "keyword.control.flow.js"
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    {
+      "include": "source.js"
+    }
+  ]
+}

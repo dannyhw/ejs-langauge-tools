@@ -1,7 +1,7 @@
 {
   "name": "ejs-language-support",
   "version": "1.0.0",
-  "description": "Language support for EJS with TypeScript, TSX, and JSON",
+  "description": "Language support for EJS with TypeScript, TSX, JSON, and CSS",
   "repository": {
     "type": "git",
     "url": "https://github.com/dannyhw/ejs-langauge-tools"
@@ -14,7 +14,9 @@
     "typescript",
     "tsx",
     "json",
-    "templates"
+    "templates",
+    "javascript",
+    "css"
   ],
   "contributes": {
     "languages": [
@@ -57,6 +59,16 @@
           "CSS-EJS"
         ],
         "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "js-ejs",
+        "extensions": [
+          ".js.ejs"
+        ],
+        "aliases": [
+          "JS-EJS"
+        ],
+        "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
@@ -93,6 +105,14 @@
         }
       },
       {
+        "language": "js-ejs",
+        "scopeName": "source.js.ejs",
+        "path": "./syntaxes/js-ejs-injection.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.ejs.tag": "javascript"
+        }
+      },
+      {
         "scopeName": "source.tsx",
         "injectTo": [
           "source.tsx.ejs"
@@ -114,6 +134,12 @@
         "scopeName": "source.css",
         "injectTo": [
           "source.css.ejs"
+        ]
+      },
+      {
+        "scopeName": "source.js",
+        "injectTo": [
+          "source.js.ejs"
         ]
       }
     ]

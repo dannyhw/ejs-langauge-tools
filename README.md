@@ -1,12 +1,13 @@
 # EJS Language Support
 
-Language support for EJS (Embedded JavaScript) templates in TypeScript, TSX, JSON, and CSS files.
+Language support for EJS (Embedded JavaScript) templates in TypeScript, TSX, JavaScript, JSON, and CSS files.
 
 ## Features
 
 - Syntax highlighting for EJS tags in:
   - TypeScript (`.ts.ejs`)
   - TSX (`.tsx.ejs`)
+  - JavaScript (`.js.ejs`)
   - JSON (`.json.ejs`)
   - CSS (`.css.ejs`)
 - Support for all EJS syntax:
@@ -35,12 +36,30 @@ Files will be automatically recognized by their extensions:
 
 - `.tsx.ejs` - TSX files with EJS
 - `.ts.ejs` - TypeScript files with EJS
+- `.js.ejs` - JavaScript files with EJS
 - `.json.ejs` - JSON files with EJS
 - `.css.ejs` - CSS files with EJS
 
 The syntax highlighting will automatically work for these file types.
 
 ## Examples
+
+### JavaScript
+
+```javascript
+<%# This is a comment %>
+const config = {
+  <% if (isDevelopment) { %>
+    apiUrl: 'http://localhost:3000',
+    debug: true
+  <% } else { %>
+    apiUrl: '<%= process.env.API_URL %>',
+    debug: false
+  <% } %>
+};
+
+module.exports = config;
+```
 
 ### TSX/TypeScript
 
