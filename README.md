@@ -45,7 +45,9 @@ The syntax highlighting will automatically work for these file types.
 
 ### File Associations
 
-If the file extensions are not being recognized automatically, you can add the following to your VS Code settings.json:
+The extension automatically configures file associations for all supported file types. You don't need to manually set these up.
+
+If for some reason the automatic configuration doesn't work, you can manually add the following to your VS Code settings.json:
 
 ```json
 "files.associations": {
