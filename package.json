@@ -75,7 +75,7 @@
       {
         "language": "tsx-ejs",
         "scopeName": "source.tsx.ejs",
-        "path": "./syntaxes/ejs-injection.tmLanguage.json",
+        "path": "./syntaxes/tsx-ejs-injection.tmLanguage.json",
         "embeddedLanguages": {
           "meta.ejs.tag": "javascript"
         }

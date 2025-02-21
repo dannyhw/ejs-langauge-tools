@@ -142,7 +142,7 @@ bun run dev
 
 The main files you might want to modify are:
 
-- `syntaxes/ejs-injection.tmLanguage.json` - TSX grammar
+- `syntaxes/tsx-ejs-injection.tmLanguage.json` - TSX grammar
 - `syntaxes/ts-ejs-injection.tmLanguage.json` - TypeScript grammar
 - `syntaxes/js-ejs-injection.tmLanguage.json` - JavaScript grammar
 - `syntaxes/json-ejs-injection.tmLanguage.json` - JSON grammar
