@@ -24,7 +24,7 @@ Language support for EJS (Embedded JavaScript) templates in TypeScript, TSX, Jav
 
 ## Installation
 
-to install build locally and install it in Cursor or vscode, run:
+To install build locally and install it in Cursor or VS Code, run:
 
 ```bash
 bun run build
@@ -117,9 +117,48 @@ module.exports = config;
 }
 ```
 
+## Development
+
+### Local Testing
+
+For quick development and testing, use the `dev` command which will:
+
+1. Remove any existing .vsix files
+2. Build a new extension package
+3. Uninstall the current version from Cursor
+4. Install the new version
+
+```bash
+bun run dev
+```
+
+### Making Changes
+
+1. Clone the repository
+2. Make your changes to the grammar files in the `syntaxes` directory
+3. Test your changes using `bun run dev`
+4. Verify syntax highlighting works as expected
+5. Submit a pull request
+
+The main files you might want to modify are:
+
+- `syntaxes/ejs-injection.tmLanguage.json` - TSX grammar
+- `syntaxes/ts-ejs-injection.tmLanguage.json` - TypeScript grammar
+- `syntaxes/js-ejs-injection.tmLanguage.json` - JavaScript grammar
+- `syntaxes/json-ejs-injection.tmLanguage.json` - JSON grammar
+- `syntaxes/css-ejs-injection.tmLanguage.json` - CSS grammar
+
 ## Contributing
 
 Found a bug? Please open an issue on [GitHub](https://github.com/dannyhw/ejs-langauge-tools).
+
+Want to contribute? Great! Here's how:
+
+1. Fork the repository
+2. Create a new branch for your feature
+3. Make your changes
+4. Test thoroughly using the development instructions above
+5. Submit a pull request
 
 ## License
 
