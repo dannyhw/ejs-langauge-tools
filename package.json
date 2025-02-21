@@ -1,14 +1,23 @@
 {
   "name": "ejs-language-support",
+  "displayName": "EJS Language Support",
   "version": "1.0.0",
   "description": "Language support for EJS with TypeScript, TSX, JSON, and CSS",
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dannyhw/ejs-langauge-tools"
+    "url": "https://github.com/dannyhw/ejs-language-tools"
   },
   "publisher": "dannyhw",
   "author": "dannyhw",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dannyhw/ejs-language-tools/issues"
+  },
+  "homepage": "https://github.com/dannyhw/ejs-language-tools#readme",
+  "categories": [
+    "Programming Languages"
+  ],
   "keywords": [
     "ejs",
     "typescript",
