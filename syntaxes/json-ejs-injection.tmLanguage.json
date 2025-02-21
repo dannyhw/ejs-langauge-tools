@@ -1,9 +1,6 @@
 {
-  "scopeName": "source.tsx.ejs",
+  "scopeName": "source.json.ejs",
   "patterns": [
-    {
-      "include": "source.tsx"
-    },
     {
       "begin": "<%#",
       "end": "%>",
@@ -31,7 +28,11 @@
       "begin": "<%-",
       "end": "%>",
       "name": "meta.ejs.tag.raw",
-      "contentName": "source.js",
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ],
       "beginCaptures": {
         "0": { "name": "punctuation.ejs.tag.begin" }
       },
@@ -40,16 +41,23 @@
       }
     },
     {
-      "begin": "<%(?![#=%]|-)",
+      "begin": "<%",
       "end": "%>",
       "name": "meta.ejs.tag.control",
-      "contentName": "source.js",
+      "patterns": [
+        {
+          "include": "source.js"
+        }
+      ],
       "beginCaptures": {
         "0": { "name": "punctuation.ejs.tag.begin" }
       },
       "endCaptures": {
         "0": { "name": "punctuation.ejs.tag.end" }
       }
+    },
+    {
+      "include": "source.json"
     }
   ]
 }

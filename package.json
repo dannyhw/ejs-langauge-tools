@@ -1,7 +1,21 @@
 {
-  "name": "ejs-language-tools",
+  "name": "ejs-language-support",
   "version": "1.0.0",
-  "description": "Language support for EJS and tsx",
+  "description": "Language support for EJS with TypeScript, TSX, and JSON",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dannyhw/ejs-langauge-tools"
+  },
+  "publisher": "dannyhw",
+  "author": "dannyhw",
+  "license": "MIT",
+  "keywords": [
+    "ejs",
+    "typescript",
+    "tsx",
+    "json",
+    "templates"
+  ],
   "contributes": {
     "languages": [
       {
@@ -11,6 +25,26 @@
         ],
         "aliases": [
           "TSX-EJS"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "ts-ejs",
+        "extensions": [
+          ".ts.ejs"
+        ],
+        "aliases": [
+          "TS-EJS"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "json-ejs",
+        "extensions": [
+          ".json.ejs"
+        ],
+        "aliases": [
+          "JSON-EJS"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -25,9 +59,37 @@
         }
       },
       {
+        "language": "ts-ejs",
+        "scopeName": "source.ts.ejs",
+        "path": "./syntaxes/ts-ejs-injection.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.ejs.tag": "javascript"
+        }
+      },
+      {
+        "language": "json-ejs",
+        "scopeName": "source.json.ejs",
+        "path": "./syntaxes/json-ejs-injection.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.ejs.tag": "javascript"
+        }
+      },
+      {
         "scopeName": "source.tsx",
         "injectTo": [
           "source.tsx.ejs"
+        ]
+      },
+      {
+        "scopeName": "source.ts",
+        "injectTo": [
+          "source.ts.ejs"
+        ]
+      },
+      {
+        "scopeName": "source.json",
+        "injectTo": [
+          "source.json.ejs"
         ]
       }
     ]
@@ -36,7 +98,8 @@
     "vscode": "^1.85.0"
   },
   "scripts": {
-    "build": "vsce package"
+    "build": "vsce package",
+    "dev": "rm -f *.vsix && vsce package && cursor --uninstall-extension dannyhw.ejs-language-support && cursor --install-extension *.vsix"
   },
   "devDependencies": {
     "vsce": "^2.15.0"

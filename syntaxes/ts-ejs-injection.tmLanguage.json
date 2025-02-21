@@ -1,8 +1,8 @@
 {
-  "scopeName": "source.tsx.ejs",
+  "scopeName": "source.ts.ejs",
   "patterns": [
     {
-      "include": "source.tsx"
+      "include": "source.ts"
     },
     {
       "begin": "<%#",
