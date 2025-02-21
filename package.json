@@ -111,36 +111,6 @@
         "embeddedLanguages": {
           "meta.ejs.tag": "javascript"
         }
-      },
-      {
-        "scopeName": "source.tsx",
-        "injectTo": [
-          "source.tsx.ejs"
-        ]
-      },
-      {
-        "scopeName": "source.ts",
-        "injectTo": [
-          "source.ts.ejs"
-        ]
-      },
-      {
-        "scopeName": "source.json",
-        "injectTo": [
-          "source.json.ejs"
-        ]
-      },
-      {
-        "scopeName": "source.css",
-        "injectTo": [
-          "source.css.ejs"
-        ]
-      },
-      {
-        "scopeName": "source.js",
-        "injectTo": [
-          "source.js.ejs"
-        ]
       }
     ]
   },
