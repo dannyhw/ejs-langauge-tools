@@ -24,10 +24,11 @@ Language support for EJS (Embedded JavaScript) templates in TypeScript, TSX, Jav
 
 ## Installation
 
-Install through VS Code extensions. Search for `EJS Language Support`
+to install build locally and install it in Cursor or vscode, run:
 
-```
-ext install dannyhw.ejs-language-support
+```bash
+bun run build
+cursor --install-extension dannyhw.ejs-language-support
 ```
 
 ## Usage
