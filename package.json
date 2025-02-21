@@ -1,0 +1,44 @@
+{
+  "name": "ejs-language-tools",
+  "version": "1.0.0",
+  "description": "Language support for EJS and tsx",
+  "contributes": {
+    "languages": [
+      {
+        "id": "tsx-ejs",
+        "extensions": [
+          ".tsx.ejs"
+        ],
+        "aliases": [
+          "TSX-EJS"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tsx-ejs",
+        "scopeName": "source.tsx.ejs",
+        "path": "./syntaxes/ejs-injection.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.ejs.tag": "javascript"
+        }
+      },
+      {
+        "scopeName": "source.tsx",
+        "injectTo": [
+          "source.tsx.ejs"
+        ]
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "scripts": {
+    "build": "vsce package"
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0"
+  }
+}
