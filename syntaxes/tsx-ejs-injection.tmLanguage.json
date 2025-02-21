@@ -2,54 +2,146 @@
   "scopeName": "source.tsx.ejs",
   "patterns": [
     {
-      "include": "source.tsx"
+      "include": "#ejs-tags"
     },
     {
-      "begin": "<%#",
-      "end": "%>",
-      "name": "comment.block.ejs",
-      "beginCaptures": {
-        "0": { "name": "punctuation.definition.comment.ejs" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.comment.ejs" }
-      }
+      "include": "#jsx-tags"
     },
     {
-      "begin": "<%=",
-      "end": "%>",
-      "name": "meta.ejs.tag.escaped",
-      "contentName": "source.js",
-      "beginCaptures": {
-        "0": { "name": "punctuation.ejs.tag.begin" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.ejs.tag.end" }
-      }
+      "include": "source.tsx#directives"
     },
     {
-      "begin": "<%-",
-      "end": "%>",
-      "name": "meta.ejs.tag.raw",
-      "contentName": "source.js",
-      "beginCaptures": {
-        "0": { "name": "punctuation.ejs.tag.begin" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.ejs.tag.end" }
-      }
+      "include": "source.tsx#statements"
     },
     {
-      "begin": "<%(?![#=%]|-)",
-      "end": "%>",
-      "name": "meta.ejs.tag.control",
-      "contentName": "source.js",
-      "beginCaptures": {
-        "0": { "name": "punctuation.ejs.tag.begin" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.ejs.tag.end" }
-      }
+      "include": "source.tsx#shebang"
+    },
+    {
+      "include": "source.tsx#expression"
+    },
+    {
+      "include": "source.tsx#declaration"
+    },
+    {
+      "include": "source.tsx#type"
     }
-  ]
+  ],
+  "repository": {
+    "jsx-tags": {
+      "patterns": [
+        {
+          "begin": "(?<=\\>)\\s*(?=\\<\\/)",
+          "end": "(?<=\\>)",
+          "patterns": [
+            {
+              "include": "#ejs-tags"
+            },
+            {
+              "include": "source.tsx#jsx"
+            }
+          ]
+        },
+        {
+          "begin": "(?<!\\>)\\s*(?=\\<\\/)",
+          "end": "(?<=\\>)",
+          "patterns": [
+            {
+              "include": "#ejs-tags"
+            },
+            {
+              "include": "source.tsx#jsx"
+            }
+          ]
+        },
+        {
+          "include": "source.tsx#jsx"
+        }
+      ]
+    },
+    "ejs-tags": {
+      "patterns": [
+        {
+          "begin": "<%#",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.comment.begin.ejs" }
+          },
+          "end": "%>",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.comment.end.ejs" }
+          },
+          "name": "comment.block.ejs"
+        },
+        {
+          "begin": "<%(?=[=%]|-)",
+          "beginCaptures": {
+            "0": { "name": "punctuation.section.embedded.begin.ejs" }
+          },
+          "end": "%>",
+          "endCaptures": {
+            "0": { "name": "punctuation.section.embedded.end.ejs" }
+          },
+          "name": "meta.embedded.line.js.ejs",
+          "patterns": [
+            {
+              "match": "[=%]|-",
+              "name": "punctuation.section.embedded.operator.ejs"
+            },
+            {
+              "include": "source.js"
+            }
+          ]
+        },
+        {
+          "begin": "<%(?![#=%]|-)",
+          "beginCaptures": {
+            "0": { "name": "punctuation.section.embedded.begin.ejs" }
+          },
+          "end": "%>\\s*",
+          "endCaptures": {
+            "0": { "name": "punctuation.section.embedded.end.ejs" }
+          },
+          "name": "meta.embedded.block.js.ejs",
+          "patterns": [
+            {
+              "match": "\\b(if|else|for|while|do|switch|case|break|continue|return)\\b",
+              "name": "keyword.control.flow.js"
+            },
+            {
+              "include": "source.js"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "injections": {
+    "L:meta.jsx.children": {
+      "patterns": [
+        {
+          "include": "#ejs-tags"
+        }
+      ]
+    },
+    "L:meta.block": {
+      "patterns": [
+        {
+          "include": "#ejs-tags"
+        }
+      ]
+    },
+    "L:meta.var.expr": {
+      "patterns": [
+        {
+          "include": "#ejs-tags"
+        }
+      ]
+    },
+    "L:meta.objectliteral": {
+      "patterns": [
+        {
+          "include": "#ejs-tags"
+        }
+      ]
+    }
+  }
 }
