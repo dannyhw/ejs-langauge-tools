@@ -1,4 +1,4 @@
-# EJS Language Support
+# EJS Extended Language Support
 
 Language support for EJS (Embedded JavaScript) templates in TypeScript, TSX, JavaScript, JSON, and CSS files.
 
@@ -28,7 +28,7 @@ To install build locally and install it in Cursor or VS Code, run:
 
 ```bash
 bun run build
-cursor --install-extension dannyhw.ejs-language-support
+cursor --install-extension dannyhw.ejs-extended-language-support
 ```
 
 ## Usage

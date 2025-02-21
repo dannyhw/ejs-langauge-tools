@@ -137,7 +137,7 @@
   },
   "scripts": {
     "build": "vsce package",
-    "dev": "rm -f *.vsix && vsce package && cursor --uninstall-extension dannyhw.ejs-language-support && cursor --install-extension *.vsix"
+    "dev": "rm -f *.vsix && vsce package && cursor --uninstall-extension dannyhw.ejs-extended-language-support && cursor --install-extension *.vsix"
   },
   "devDependencies": {
     "vsce": "^2.15.0"
