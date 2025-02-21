@@ -6,58 +6,93 @@
       "end": "%>",
       "name": "comment.block.ejs",
       "beginCaptures": {
-        "0": { "name": "punctuation.definition.comment.ejs" }
+        "0": { "name": "punctuation.definition.comment.begin.ejs" }
       },
       "endCaptures": {
-        "0": { "name": "punctuation.definition.comment.ejs" }
-      }
-    },
-    {
-      "begin": "<%=",
-      "end": "%>",
-      "name": "meta.ejs.tag.escaped",
-      "contentName": "source.js",
-      "beginCaptures": {
-        "0": { "name": "punctuation.ejs.tag.begin" }
+        "0": { "name": "punctuation.definition.comment.end.ejs" }
       },
-      "endCaptures": {
-        "0": { "name": "punctuation.ejs.tag.end" }
-      }
-    },
-    {
-      "begin": "<%-",
-      "end": "%>",
-      "name": "meta.ejs.tag.raw",
       "patterns": [
+        {
+          "match": ".*?(?=%>)",
+          "name": "comment.block.content.ejs"
+        }
+      ]
+    },
+    {
+      "begin": "<%(?=[=\\-])",
+      "end": "%>",
+      "name": "meta.embedded.line.ejs",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "endCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "patterns": [
+        {
+          "match": "[=\\-]",
+          "name": "keyword.control.ejs"
+        },
         {
           "include": "source.js"
         }
-      ],
-      "beginCaptures": {
-        "0": { "name": "punctuation.ejs.tag.begin" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.ejs.tag.end" }
-      }
+      ]
     },
     {
       "begin": "<%",
       "end": "%>",
-      "name": "meta.ejs.tag.control",
+      "name": "meta.embedded.block.ejs",
+      "beginCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
+      "endCaptures": {
+        "0": { "name": "keyword.control.ejs" }
+      },
       "patterns": [
+        {
+          "match": "\\b(if|else|for|while|do|switch|case|break|continue|return)\\b",
+          "name": "keyword.control.flow.js"
+        },
         {
           "include": "source.js"
         }
-      ],
-      "beginCaptures": {
-        "0": { "name": "punctuation.ejs.tag.begin" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.ejs.tag.end" }
-      }
+      ]
     },
     {
-      "include": "source.json"
+      "include": "#json"
     }
-  ]
+  ],
+  "repository": {
+    "json": {
+      "patterns": [
+        {
+          "begin": "{",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.dictionary.begin.json" }
+          },
+          "end": "}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.dictionary.end.json" }
+          },
+          "name": "meta.structure.dictionary.json",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "begin": "\\[",
+          "beginCaptures": {
+            "0": { "name": "punctuation.definition.array.begin.json" }
+          },
+          "end": "\\]",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.array.end.json" }
+          },
+          "name": "meta.structure.array.json",
+          "patterns": [{ "include": "$self" }]
+        },
+        {
+          "include": "source.json"
+        }
+      ]
+    }
+  }
 }
