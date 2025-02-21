@@ -71,6 +71,15 @@
         "configuration": "./language-configuration.json"
       }
     ],
+    "configurationDefaults": {
+      "files.associations": {
+        "*.tsx.ejs": "tsx-ejs",
+        "*.ts.ejs": "ts-ejs",
+        "*.js.ejs": "js-ejs",
+        "*.json.ejs": "json-ejs",
+        "*.css.ejs": "css-ejs"
+      }
+    },
     "grammars": [
       {
         "language": "tsx-ejs",
