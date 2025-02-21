@@ -42,6 +42,20 @@ Files will be automatically recognized by their extensions:
 
 The syntax highlighting will automatically work for these file types.
 
+### File Associations
+
+If the file extensions are not being recognized automatically, you can add the following to your VS Code settings.json:
+
+```json
+"files.associations": {
+    "*.tsx.ejs": "tsx-ejs",
+    "*.ts.ejs": "ts-ejs",
+    "*.js.ejs": "js-ejs",
+    "*.json.ejs": "json-ejs",
+    "*.css.ejs": "css-ejs"
+}
+```
+
 ## Examples
 
 ### JavaScript
